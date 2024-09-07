@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Array Elements</title>
+</head>
+<style>
+    .maindiv{
+        height: 250px;
+        width: 450px;
+        background-color: grey;
+        border: 3px solid black;
+        margin-top: 250px;
+        margin-left: 600px;
+
+    }
+</style>
+<body>
+    <div class="maindiv">
+    <h1>Display Array Elements</h1>
+    <p>Current Array <span id="displayArray">[]</span></p>
+    <input type="text" id="inputElement"><br><br>
+    <button id="push" onclick="pushElement()">Push</button>
+    <button id="pop" onclick="popElement()">Pop</button>
+    </div></body>
+    <script>
+        const array=[];
+        function updateElement(){
+            document.getElementById('displayArray').textContent=JSON.stringify(array);
+        }
+        function pushElement(){
+            let input= document.getElementById('inputElement').value;
+            if(input !==''){
+                array.push(input);
+                document.getElementById('inputElement').value='';
+                updateElement();
+            }
+            else{
+                alert("Enter the Input");
+            }
+        }
+        updateElement();
+       function popElement(){
+        if(array.length>0){
+            array.pop();
+            updateElement();
+        }
+        else{
+            alert("Arey Bhai Array khaali pda hua hai");
+        }
+       }
+    </script>
+</html>
